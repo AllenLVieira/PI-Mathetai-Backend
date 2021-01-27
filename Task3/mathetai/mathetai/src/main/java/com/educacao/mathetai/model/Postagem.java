@@ -8,19 +8,16 @@
  * javax.persistence.ManyToOne; import javax.persistence.Table; import
  * javax.persistence.Temporal; import javax.persistence.TemporalType; import
  * javax.validation.constraints.NotNull; import
- * javax.validation.constraints.Size;
- * 
- * import org.hibernate.validator.constraints.Length;
- * 
- * import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+ * javax.validation.constraints.Size; import
+ * com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * 
  * @Entity
  * 
- * @Table (name = "tb_postagem") public class Postagem {
+ * @Table(name = "tb_postagem") public class Postagem {
  * 
  * @Id
  * 
- * @GeneratedValue (strategy = GenerationType.IDENTITY) private long id;
+ * @GeneratedValue(strategy = GenerationType.IDENTITY) private long id;
  * 
  * @NotNull
  * 
@@ -31,17 +28,19 @@
  * 
  * @NotNull
  * 
- * @Size(min = 5, max = 15000) private String url_midia;
+ * @Size(min = 5, max = 10000) private String link;
  * 
  * private int interacao;
  * 
- * @ManyToOne
- * 
- * @JsonIgnoreProperties("postagem") private Tema tema_id;
+ * private String tag;
  * 
  * @ManyToOne
  * 
- * @JsonIgnoreProperties("postagem") private Usuario usuario_id;
+ * @JsonIgnoreProperties("postagem") private Tema tema;
+ * 
+ * @ManyToOne
+ * 
+ * @JsonIgnoreProperties("postagem") private Usuario usuario;
  * 
  * public long getId() { return id; }
  * 
@@ -55,22 +54,25 @@
  * 
  * public void setData(Date data) { this.data = data; }
  * 
- * public String getUrl_midia() { return url_midia; }
+ * public String getLink() { return link; }
  * 
- * public void setUrl_midia(String url_midia) { this.url_midia = url_midia; }
+ * public void setLink(String link) { this.link = link; }
  * 
  * public int getInteracao() { return interacao; }
  * 
  * public void setInteracao(int interacao) { this.interacao = interacao; }
  * 
- * public Tema getTema_id() { return tema_id; }
+ * public String getTag() { return tag; }
  * 
- * public void setTema_id(Tema tema_id) { this.tema_id = tema_id; }
+ * public void setTag(String tag) { this.tag = tag; }
  * 
- * public Usuario getUsuario_id() { return usuario_id; }
+ * public Tema getTema() { return tema; }
  * 
- * public void setUsuario_id(Usuario usuario_id) { this.usuario_id = usuario_id;
- * }
+ * public void setTema(Tema tema) { this.tema = tema; }
+ * 
+ * public Usuario getUsuario() { return usuario; }
+ * 
+ * public void setUsuario(Usuario usuario) { this.usuario = usuario; }
  * 
  * }
  */

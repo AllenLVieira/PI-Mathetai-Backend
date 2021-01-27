@@ -15,30 +15,22 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table (name = "tb_tema")
+@Table(name = "tb_tema")
 public class Tema {
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull
 	@Size(min = 5, max = 50)
 	private String assunto;
-	
-	@NotNull
-	@Size(min = 5, max = 2550)
-	private String keywords;
-	
-	@NotNull
-	private int quantidade;
-	
-	/*
-	 * @OneToMany(mappedBy = "tema_id", cascade = CascadeType.ALL)
-	 * 
-	 * @JsonIgnoreProperties("tema_id") private List<Postagem> postagem;
-	 */
 
+	/*
+	 * @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+	 * 
+	 * @JsonIgnoreProperties("tema") private List<Postagem> postagem;
+	 */
 	public long getId() {
 		return id;
 	}
@@ -55,27 +47,10 @@ public class Tema {
 		this.assunto = assunto;
 	}
 
-	public String getKeywords() {
-		return keywords;
-	}
-
-	public void setKeywords(String keywords) {
-		this.keywords = keywords;
-	}
-
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
 	/*
 	 * public List<Postagem> getPostagem() { return postagem; }
 	 * 
 	 * public void setPostagem(List<Postagem> postagem) { this.postagem = postagem;
 	 * }
 	 */
-	
 }

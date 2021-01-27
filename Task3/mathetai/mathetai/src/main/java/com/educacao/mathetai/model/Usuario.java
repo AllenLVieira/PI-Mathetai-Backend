@@ -13,7 +13,7 @@
  * 
  * @Entity
  * 
- * @Table (name = "tb_usuario") public class Usuario {
+ * @Table(name = "tb_usuario") public class Usuario {
  * 
  * @Id
  * 
@@ -31,9 +31,13 @@
  * 
  * @Size(min = 8, max = 20) private String senha;
  * 
- * @OneToMany(mappedBy = "usuario_id", cascade = CascadeType.ALL)
+ * @NotNull
  * 
- * @JsonIgnoreProperties("usuario_id") private List<Postagem> postagem;
+ * @Size(min = 8, max = 100) private String contato;
+ * 
+ * @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+ * 
+ * @JsonIgnoreProperties("usuario") private List<Postagem> postagem;
  * 
  * public long getId() { return id; }
  * 
@@ -51,6 +55,10 @@
  * public String getSenha() { return senha; }
  * 
  * public void setSenha(String senha) { this.senha = senha; }
+ * 
+ * public String getContato() { return contato; }
+ * 
+ * public void setContato(String contato) { this.contato = contato; }
  * 
  * public List<Postagem> getPostagem() { return postagem; }
  * 
