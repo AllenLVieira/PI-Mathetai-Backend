@@ -26,11 +26,11 @@ public class Tema {
 	@Size(min = 5, max = 50)
 	private String assunto;
 
-	/*
-	 * @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-	 * 
-	 * @JsonIgnoreProperties("tema") private List<Postagem> postagem;
-	 */
+	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+
+	@JsonIgnoreProperties("tema")
+	private List<Postagem> postagem;
+
 	public long getId() {
 		return id;
 	}
@@ -47,10 +47,12 @@ public class Tema {
 		this.assunto = assunto;
 	}
 
-	/*
-	 * public List<Postagem> getPostagem() { return postagem; }
-	 * 
-	 * public void setPostagem(List<Postagem> postagem) { this.postagem = postagem;
-	 * }
-	 */
+	public List<Postagem> getPostagem() {
+		return postagem;
+	}
+
+	public void setPostagem(List<Postagem> postagem) {
+		this.postagem = postagem;
+	}
+
 }
