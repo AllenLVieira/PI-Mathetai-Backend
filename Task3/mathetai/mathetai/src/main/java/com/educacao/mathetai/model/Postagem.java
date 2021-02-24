@@ -21,19 +21,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Postagem {
 
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@NotNull
-
 	@Size(min = 5, max = 2000)
 	private String descricao;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date data = new java.sql.Date(System.currentTimeMillis());
-
-	@NotNull
 
 	@Size(min = 5, max = 10000)
 	private String link;
@@ -43,15 +39,12 @@ public class Postagem {
 	private String tag;
 
 	@ManyToOne
-
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
 
-	/* @ManyToOne */
-
-	/*
-	 * @JsonIgnoreProperties("postagem") private Usuario usuario;
-	 */
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 
 	public long getId() {
 		return id;
@@ -109,10 +102,12 @@ public class Postagem {
 		this.tema = tema;
 	}
 
-	/*
-	 * public Usuario getUsuario() { return usuario; }
-	 * 
-	 * public void setUsuario(Usuario usuario) { this.usuario = usuario; }
-	 */
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 
 }
