@@ -1,12 +1,21 @@
 package com.educacao.mathetai.model;
 
 public class UsuarioLogin {
+	private long id;
 	private String nome_completo;
 	private String email;
 	private String senha;
 	private String contato;
 	private String token;
 	private String foto;
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNome_completo() {
 		return nome_completo;
@@ -55,6 +64,6 @@ public class UsuarioLogin {
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	
+
 	
 }
