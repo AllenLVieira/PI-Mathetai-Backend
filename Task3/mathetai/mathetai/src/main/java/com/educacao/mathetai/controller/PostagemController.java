@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +39,11 @@ public class PostagemController {
 	@GetMapping("/tag/{tag}")
 	public ResponseEntity<List<Postagem>> getByTag(@PathVariable String tag) {
 		return ResponseEntity.ok(repository.findAllByTagContainingIgnoreCase(tag));
+	}
+
+	@GetMapping("/descricao/{descricao}")
+	public ResponseEntity<List<Postagem>> getByDescricao(@PathVariable String descricao) {
+		return ResponseEntity.ok(repository.findAllByDescricaoContainingIgnoreCase(descricao));
 	}
 
 	@PostMapping

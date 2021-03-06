@@ -11,4 +11,5 @@ import com.educacao.mathetai.model.Postagem;
 public interface PostagemRepository extends JpaRepository<Postagem, Long> {
 	public List<Postagem> findAllByTagContainingIgnoreCase(String tag);
 
+	public List<Postagem> findAllByDescricaoContainingIgnoreCase(String descricao);
 }
