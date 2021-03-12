@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.educacao.mathetai.model.Postagem;
@@ -54,9 +55,13 @@ public class PostagemController {
 	@PutMapping
 	public ResponseEntity<Postagem> put(@RequestBody Postagem postagem) {
 		return ResponseEntity.ok(repository.save(postagem));
-
 	}
 
+	@PutMapping("/{idPostagem}") @ResponseStatus(value = HttpStatus.OK)
+	public void putInteracao(@PathVariable long idPostagem){
+		repository.updateInteracao(idPostagem);
+	}
+	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
 		repository.deleteById(id);
